@@ -11,6 +11,8 @@ registry: ghcr.io/asalbers
 dependencies:
   - name: hello-keyvault
     reference: ghcr.io/asalbers/hello-keyvault:v0.1.2
+  - name: hello-azf
+    reference: ghcr.io/asalbers/hello-azf:v0.1.7
 
 mixins:
   - exec
