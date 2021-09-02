@@ -1,9 +1,4 @@
-# This is the configuration for Porter
-# You must define steps for each action, but the rest is optional
-# See https://porter.sh/author-bundles for documentation on how to configure your bundle
-# Uncomment out the sections below to take full advantage of what Porter can do!
-
-name: porter-hello
+name: umbrella-bundle-example
 version: 0.1.0
 description: "An example Porter configuration"
 registry: ghcr.io/asalbers
@@ -11,8 +6,19 @@ registry: ghcr.io/asalbers
 dependencies:
   - name: hello-keyvault
     reference: ghcr.io/asalbers/hello-keyvault:v0.1.2
-  - name: hello-azf
-    reference: ghcr.io/asalbers/hello-azf:v0.1.7
+    parameters:
+      AZURE_RESOURCE_GROUP_NAME: "testing-porter-rg"
+  # - name: hello-azf
+  #   reference: ghcr.io/asalbers/hello-azf:v0.1.7
+  #   parameters:
+  #     CON_IMAGE: "testing:latest"
+  #     REG_URL: "test.io"
+  #     test_var: "{{ bundle.dependencies.hello-keyvault.outputs.json }}"
+  # - name: hello-awx
+  #   reference: "ghcr.io/asalbers/hello-tower:v0.1.2"
+  #   parameters:
+  #     tower_base_url: 'test-awx-url.com'
+
 
 mixins:
   - exec
